@@ -27,6 +27,7 @@
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-wheel-of-prizes": "^1.0.6",
     "redux": "^4.0.5",
     "webpack": "^5.16.0",
     "webpack-cli": "^3.3.10",
