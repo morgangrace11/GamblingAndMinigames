@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import WheelComponent from 'react-wheel-of-prizes'
 import 'react-wheel-of-prizes/dist/index.css'
 
@@ -19,7 +17,6 @@ class Wheel extends React.Component {
         this.getWinner = this.getWinner.bind(this);
         this.onFinished = this.onFinished.bind(this);
     }
-// console.log(props.bets)
     getWinner = () => {
         let winnings = 0;
         let currWinner = {};
@@ -54,11 +51,9 @@ class Wheel extends React.Component {
         }
         this.props.handleCoinUpdate(winnings);
         this.props.handleWinner('You\'ve won ' + winnings + ' points at '+currWinner['multiplier']+'x the money you put in');
-        console.log('You\'ve won ' + winnings + ' points at '+currWinner['multiplier']+'x the money you put in');
     }
 
     onFinished = (winner) => {
-        console.log(winner)
         this.setState({ 'winner': winner });
         this.getWinner();
     }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import WheelComponent from 'react-wheel-of-prizes';
 import Wheel from './wheel.jsx';
-import 'react-wheel-of-prizes/dist/index.css'
 
 class Home extends React.Component {
 
@@ -40,8 +38,6 @@ class Home extends React.Component {
             'yellow': yellow,
             'purple': purple,
         }})
-        console.log(this.state.bets)
-        console.log('You\'ve bet ' + black + ' on Black, ' + green + ' on Green, ' + blue + ' on Blue, ' + yellow + ' on Yellow, ' + purple + ' on Purple')
     }
     handleCoinUpdate(coins) {
         this.setState({
