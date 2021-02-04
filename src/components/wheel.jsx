@@ -49,7 +49,7 @@ class Wheel extends React.Component {
         if (Number(this.props.currentBets[currWinner['color']]) > 0) {
             winnings = this.props.currentBets[currWinner['color']] * currWinner['multiplier'];
         }
-        this.props.handleCoinUpdate(winnings);
+        this.props.addCoins(winnings);
         this.props.handleWinner('You\'ve won ' + winnings + ' points at '+currWinner['multiplier']+'x the money you put in');
     }
 
@@ -69,7 +69,6 @@ class Wheel extends React.Component {
                     buttonText='Spin'
                     isOnlyOnce = {true}
                     />
-                <div><Link to='/minigames'>arrowwww</Link></div>
             </div>
         )
     } 
