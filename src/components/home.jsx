@@ -12,31 +12,6 @@ const Home = () => {
     }
 
     const [bets, setBets] = useState(initialBets);
-    const [winner, setWinner] = useState('');
-    const [coins, setCoins] = useState(100);
-    const [error, setError] = useState('');
-    
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         bets: {
-    //             'black': 0,
-    //             'green': 0,
-    //             'blue': 0,
-    //             'yellow': 0,
-    //             'purple': 0, 
-    //         },
-    //         winner: '',
-    //         coins: 100,
-    //         error: '',
-    //     }
-
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    //     this.addCoins = this.addCoins.bind(this);
-    //     this.removeCoins = this.removeCoins.bind(this);
-    //     this.handleWinner = this.handleWinner.bind(this);
-    // }
 
     const handleSubmit = () => {
         let black = Number(document.getElementById("black").value) || 0;
@@ -62,56 +37,28 @@ const Home = () => {
         })
     }
 
+    const [coins, setCoins] = useState(100);
+    const [error, setError] = useState('');
+
     const addCoins = currentCoins => {
-        // setCoins(coins + currentCoins)
-        setCoins(prevCoins => prevCoins + currentCoins) //Here we pass a function in to the setter to gain access to the previous state 
-        setBets(initialBets); //We are not spreading because in this case we want to reset the bets back to zero
-        // this.setState({
-        //     'coins': this.state.coins + coins,
-        //     bets: {
-        //         'black': 0,
-        //         'green': 0,
-        //         'blue': 0,
-        //         'yellow': 0,
-        //         'purple': 0, 
-        //     },
-        // })
+        setCoins(prevCoins => prevCoins + currentCoins);
+        setBets(initialBets); 
     }
     const removeCoins = currentCoins => {
         if (currentCoins > coins) {
-            setError(`You don\'t have enough coins! Please redo your bets. You have ${coins} coins.`); //String value so we just replace
-            // setBets(initialBets)
-            // this.setState({
-            //     error: 'You don\'t have enough coins! Please redo your bets.',
-            //     bets: {
-            //         'black': 0,
-            //         'green': 0,
-            //         'blue': 0,
-            //         'yellow': 0,
-            //         'purple': 0, 
-            //     },
-            // })
+            setError(`You don\'t have enough coins! Please redo your bets. You have ${coins} coins.`); 
         } else {
             setError('');
-            setCoins(prevCoins => prevCoins - currentCoins) //Here we pass a function in to the setter to gain access to the previous state 
-            // this.setState({
-            //     'coins': this.state.coins - coins,
-            //     error: '',
-            // })
+            setCoins(prevCoins => prevCoins - currentCoins) 
         }
     }
+
+    const [winner, setWinner] = useState('');
+
     const handleWinner = winner => {
-        setWinner(winner); //This is a string so we just replace. No neeed to copy anything from prior state
+        setWinner(winner); 
     }
 
-    //With this I was trying to set up a onchange to update bets without having to submit the bets. This caused adverse effects when going to 
-    //delete the coins from the current coins since it would delete everytime a number was typed in not when the whole number was done.
-    //Relayed back to the on submit click to handle this functionality. 
-
-    // const handleBetsChange = (e, color) => {
-    //     setBets({...bets, [color]: e.target.value});
-    //     removeCoins(e.target.value);
-    // }
     return (
         <div>
             <div>this is a title</div>
