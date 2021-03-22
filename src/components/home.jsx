@@ -41,7 +41,9 @@ const Home = () => {
     const [error, setError] = useState('');
 
     const addCoins = currentCoins => {
+        console.log(currentCoins)
         setCoins(prevCoins => prevCoins + currentCoins);
+
         setBets(initialBets); 
     }
     const removeCoins = currentCoins => {
@@ -49,6 +51,7 @@ const Home = () => {
             setError(`You don\'t have enough coins! Please redo your bets. You have ${coins} coins.`); 
         } else {
             setError('');
+            console.log('here', currentCoins)
             setCoins(prevCoins => prevCoins - currentCoins) 
         }
     }
